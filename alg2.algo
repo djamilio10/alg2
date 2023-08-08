@@ -1,0 +1,33 @@
+ALGORITHM sommeElement_Distinctes
+VAR
+    sum1,sum2,result : INTEGER;
+    array1 : ARRAY_OF INTEGER[4];
+    array2 : ARRAY_OF INTEGER[5];
+    verify : BOOLEAN;
+BEGIN
+    verify := true
+    array1 := [3,1,7,9]
+    array2 := [2,4,1,9,3]
+    FOR i FROM 0 TO array1.length STEP 1  DO
+        FOR j FROM 0 TO array2.length STEP 1  DO
+            IF (array1[i] === array2[j]) THEN
+                verify := false
+                IF (verify === true) THEN
+                    sum1 := sum1 + array1[i]
+                END_IF
+            END_IF
+        END_FOR
+    END_FOR
+    FOR j FROM 0 TO array2.length STEP 1  DO
+        FOR i FROM 0 TO array1.length STEP 1  DO
+        IF (array2[j] === array1 [i]) THEN
+            verify := false
+            IF (verify === true) THEN
+                sum2 := sum2 + array2[j]
+            END_IF
+        END_IF
+    END_FOR
+    END_FOR
+    result := sum1 + sum2
+    Write("la somme des element distinct est de :" ,result)
+END
